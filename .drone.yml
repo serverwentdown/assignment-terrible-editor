@@ -2,8 +2,9 @@ pipeline:
   build:
     image: node:9-stretch
     commands:
+      - dpkg --add-architecture i386
       - apt update
-      - apt install -y zip wine
+      - apt install -y zip wine wine32
       - yarn install
       - yarn dist
       - for f in assignment-*; do zip -r $f.zip $f; done
