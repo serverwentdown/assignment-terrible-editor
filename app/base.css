@@ -1,0 +1,39 @@
+html, body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+html {
+	font-family: "League Mono", monospace;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 1.2;
+	background: #222;
+	color: #fff;
+}
+
+:root {
+	--safe-top: 32px;
+}
+
+.CodeMirror {
+	margin-top: var(--safe-top);
+	height: calc(100% - var(--safe-top));
+	font-size: 1rem;
+	background: transparent !important;
+	font-family: inherit;
+}
+
+.CodeMirror-gutters {
+	background: transparent !important;
+}
+
+.title {
+	padding: 10px;
+	font-size: 13px;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}

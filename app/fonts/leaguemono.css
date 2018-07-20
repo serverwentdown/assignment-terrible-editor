@@ -1,0 +1,34 @@
+@font-face {
+	font-family: "League Mono";
+	src: url("LeagueMono-Light.otf");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "League Mono";
+	src: url("LeagueMono-Regular.otf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "League Mono";
+	src: url("LeagueMono-Medium.otf");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "League Mono";
+	src: url("LeagueMono-SemiBold.otf");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "League Mono";
+	src: url("LeagueMono-Bold.otf");
+	font-weight: bold;
+	font-style: normal;
+}

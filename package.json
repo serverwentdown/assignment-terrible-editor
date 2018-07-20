@@ -1,0 +1,19 @@
+{
+  "name": "assignment",
+  "version": "1.0.0",
+  "description": "Editor, again",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-packager . assignment --all"
+  },
+  "author": "Ambrose Chua",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  },
+  "dependencies": {
+    "diff-match-patch": "^1.0.1",
+    "electron-packager": "^12.1.0"
+  }
+}
