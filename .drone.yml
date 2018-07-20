@@ -3,10 +3,12 @@ pipeline:
     image: node:9-stretch
     commands:
       - apt update
-      - apt install zip
+      - apt install -y zip
       - yarn install
       - yarn dist
       - for f in assignment-*; do zip -r $f.zip $f; done
+    when:
+      event: tag
   release:
     image: plugins/github-release
     secrets: [ github_token ]
