@@ -1,4 +1,4 @@
-const { readFile } = require('fs');
+const { readFile, writeFile } = require('fs');
 const { connect, createServer } = require('net');
 const EventEmitter = require('events');
 const { promisify } = require('util');
@@ -38,13 +38,21 @@ function setTitle(t) {
 	document.querySelector('.title').innerText = t;
 }
 
+let filename = '';
+
 async function loadFile(f) {
 	const contents = await promisify(readFile)(f, { encoding: 'utf8' });
+	filename = f;
 	m.setValue(contents);
 }
 
 async function save(e) {
-	setTitle('saving');
+	if (filename.length > 0) {
+		setTitle('saving');
+		await promisify(writeFile)(filename, m.getValue(), { encoding: 'utf8' });
+		setTitle('saved');
+		setTimeout(() => setTitle(filename), 1000);
+	}
 };
 
 async function open(e) {
@@ -238,7 +246,7 @@ async function attemptConnect() {
 		m.setValue('');
 	});
 	connection.on('error', () => {
-		setTitle('connection error');
+		setTitle('connection error!');
 	});
 
 	// set up a parser to read incoming deltas
@@ -273,6 +281,7 @@ function attemptListen() {
 
 		server.on('connection', async (c) => {
 			setTitle('new client connected');
+			setTimeout(() => setTitle(filename), 1000);
 
 			// maintain a list of clients to do broadcasting later
 			connections.push(c);
